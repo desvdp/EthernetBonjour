@@ -24,8 +24,15 @@
 #include <string.h>
 #include <stdlib.h>
 #include <Arduino.h>
-#include <Ethernet2.h>
-#include <EthernetUdp2.h>
+
+#if defined(ETH2)
+  #include <Ethernet2.h>
+  #include <EthernetUdp2.h>
+#else
+  #include <Ethernet.h>
+  #include <EthernetUdp.h>
+#endif
+
 
 extern "C" {
    #include <utility/EthernetUtil.h>
